@@ -1,0 +1,35 @@
+@startuml
+
+class ImageLoader
+interface ImageCache
+class MemoryCache
+class DiskCache
+class DoubleCache
+
+ImageLoader <-o ImageCache
+ImageCache <|.. MemoryCache
+ImageCache <|.. DiskCache
+ImageCache <|.. DoubleCache
+
+
+class ImageLoader{
+    +displeyImage(String ,ImgeView):void
+}
+interface ImageCache{
+    +put(String,Bitmap):void
+    +get(String):Bitmap
+}
+class MemoryCache{
+      +put(String,Bitmap):void
+        +get(String):Bitmap
+}
+class DiskCache{
+    +put(String,Bitmap):void
+    +get(String):Bitmap
+}
+class DoubleCache{
+    +put(String,Bitmap):void
+    +get(String):Bitmap
+}
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+
+class ImageLoader
+class ImageCache
+
+ImageCache<- ImageLoader
+
+class ImageLoader{
+- displayImage(String,ImgeView)
+}
+
+class ImageCache{
+    + put(String,Bitmap)
+    + get(String):Bitmap
+}
+
+@enduml
+
