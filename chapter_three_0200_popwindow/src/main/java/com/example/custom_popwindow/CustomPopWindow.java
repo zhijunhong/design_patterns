@@ -108,6 +108,11 @@ public class CustomPopWindow {
         return this;
     }
 
+
+    /**
+     * 1.建造者模式第一步调用Builder，通过Builder里面提供的静态方法设置属性值
+     * 2.调用create方法，创建最终需要的对象A，将Builder中设定的值，设置给A并返回
+     */
     public static class Builder {
         private CustomPopWindow mCustomPopWindow;
 
@@ -154,8 +159,6 @@ public class CustomPopWindow {
 
             return mCustomPopWindow;
         }
-
-
     }
 
     /**
