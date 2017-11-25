@@ -1,0 +1,50 @@
+@startuml
+
+abstract Computer{
+    # String mbBoard;
+    # String mDisplay;
+    # String mOs;
+    #Computer()
+    + setBoard():void
+    + setDisplay():void
+    +abstract setOs():void
+    + toString():String
+}
+note left of Computer:计算机抽象类
+
+class Macbook{
+    +setOs():void
+}
+note left of Macbook:具体的Computer类，Macbook
+
+abstract Builder{
+   + abstract buildBoard(String):void
+   + abstract buildDisplay(String):void
+   + abstract buildOs():void
+   + abstract create():Computer
+}
+note right of Builder:抽象Builder类
+
+class MacbookBuilder{
+    -Computer mComputer;
+    +buildBoard(String):void
+     +buildDisplay(String):void
+     +buildOs():void
+     +create():Computer
+}
+note left of MacbookBuilder:具体的Builder类，MacbookBuilder
+
+class Director{
+    Builder mBuilder;
+    +Director(Builder)
+    +construct(String,String):void
+}
+note left of Director:Director类，负责构造Computer
+
+Computer<|-- Macbook
+MacbookBuilder --|> Builder
+MacbookBuilder --* Computer
+Director o-- Builder
+
+
+@enduml
